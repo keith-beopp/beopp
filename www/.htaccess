@@ -1,0 +1,14 @@
+RewriteEngine On
+
+# Allow direct access to real files and folders
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Rewrite /path to /path.php if that file exists
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# Everything else routes to index.php
+RewriteRule ^ index.php [QSA,L]
+

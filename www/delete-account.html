@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Delete Account & Data | Beopp</title>
+  <meta name="description" content="How to delete your Beopp account and personal data.">
+  <style>
+    :root { --text:#111827; --muted:#6b7280; --bg:#ffffff; --link:#1d4ed8; }
+    html,body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Helvetica, Arial, sans-serif; }
+    .container { max-width: 820px; margin: 0 auto; padding: 48px 20px 80px; line-height:1.65; }
+    h1 { font-size: 2rem; margin: 0 0 0.5rem; }
+    h2 { font-size: 1.25rem; margin-top: 2rem; }
+    p, li, label, input, textarea { font-size: 1rem; }
+    .muted { color: var(--muted); }
+    a { color: var(--link); }
+    .card { background:#f9fafb; border:1px solid #e5e7eb; border-radius:12px; padding:16px 18px; }
+    form { display:grid; gap:12px; margin-top: 12px; }
+    input, textarea { padding:10px 12px; border:1px solid #d1d5db; border-radius:10px; }
+    button { padding:12px 14px; border-radius:12px; border:1px solid #1d4ed8; background:#1d4ed8; color:white; cursor:pointer; }
+    button:hover { filter: brightness(0.95); }
+    .tiny { font-size:.9rem; color:var(--muted); }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Delete Account &amp; Personal Data</h1>
+      <p class="muted">Last updated: August 22, 2025</p>
+    </header>
+
+    <p>We're sorry to see you go. This page explains how to request deletion of your Beopp account and associated personal data. After we verify your request, we'll permanently delete or anonymize your data, except where retention is required by law (e.g., payment and fraud revention records).</p>
+
+    <h2>Quick options</h2>
+    <div class="card">
+      <ol>
+        <li><strong>Email us:</strong> Send a message to <a href="mailto:support@beopp.com?subject=Delete%20My%20Beopp%20Account">support@beopp.com</a> with the subject "Delete My Beopp Account." Include the email address tied to your account.</li>
+        <li><strong>Or submit the form below:</strong> We'll email you to confirm before proceeding.</li>
+      </ol>
+    </div>
+
+    <h2>Request form</h2>
+    <p class="tiny">Note: This simple form sends an email to our support team. If you prefer, email us directly at <a href="mailto:support@beopp.com">support@beopp.com</a>.</p>
+    <form action="mailto:support@beopp.com" method="post" enctype="text/plain">
+      <label>Your name
+        <input name="name" placeholder="Full name" required>
+      </label>
+      <label>Account email
+        <input type="email" name="account_email" placeholder="you@example.com" required>
+      </label>
+      <label>Reason (optional)
+        <textarea name="reason" rows="4" placeholder="Tell us anything we should know (optional)"></textarea>
+      </label>
+      <label>Confirmation
+        <input name="confirmation" placeholder='Type "DELETE" to confirm' required>
+      </label>
+      <button type="submit">Send deletion request</button>
+    </form>
+
+    <h2>What will be deleted?</h2>
+    <ul>
+      <li>Profile information (name, username, profile photo, social sign-in identifiers).</li>
+      <li>Contest entries, comments, and votes associated with your account (where feasible).</li>
+      <li>Access tokens and authentication data.</li>
+    </ul>
+    <p class="tiny">We may retain certain transactional records (e.g., amounts and timestamps) for tax, accounting, chargeback, or fraud prevention purposes, as permitted by law. These records are not used to identify you after deletion.</p>
+
+    <h2>How long does it take?</h2>
+    <p>We usually process verified requests within 30 days. Some backups or logs may take longer to cycle out, but we stop using your data immediately after deletion.</p>
+
+    <footer class="muted" style="margin-top:36px;">&copy; 2025 Beopp</footer>
+  </main>
+</body>
+</html>
+

@@ -1,0 +1,152 @@
+/var/vhosts/beopp.com/www/index.php:12:// Session cookie for both www and apex (must be before any session_start anywhere)
+/var/vhosts/beopp.com/www/index.php:13:ini_set('session.cookie_domain', '.beopp.com'); // works for beopp.com + www.beopp.com
+/var/vhosts/beopp.com/www/index.php:14:ini_set('session.cookie_secure', '1');
+/var/vhosts/beopp.com/www/index.php:15:ini_set('session.cookie_httponly', '1');
+/var/vhosts/beopp.com/www/index.php:16:ini_set('session.cookie_samesite', 'Lax');
+/var/vhosts/beopp.com/www/index.php:95:    case $uri === '/admin' && $method === 'GET':
+/var/vhosts/beopp.com/www/index.php:96:        require_once __DIR__ . '/../app/controllers/AdminController.php';
+/var/vhosts/beopp.com/www/index.php:98:        AdminController::dashboard();
+/var/vhosts/beopp.com/www/index.php:102:    case $uri === '/admin/contests' && $method === 'GET':
+/var/vhosts/beopp.com/www/index.php:103:        require_once __DIR__ . '/../app/controllers/AdminController.php';
+/var/vhosts/beopp.com/www/index.php:105:        AdminController::listContests();
+/var/vhosts/beopp.com/www/index.php:109:    case $uri === '/admin/contests/delete':
+/var/vhosts/beopp.com/www/index.php:115:        require_once __DIR__ . '/../app/controllers/AdminController.php';
+/var/vhosts/beopp.com/www/index.php:117:        AdminController::deleteContest();
+/var/vhosts/beopp.com/www/index.php:121:    case $uri === '/admin/entries' && $method === 'GET':
+/var/vhosts/beopp.com/www/index.php:122:        require_once __DIR__ . '/../app/controllers/AdminController.php';
+/var/vhosts/beopp.com/www/index.php:124:        AdminController::listEntries();
+/var/vhosts/beopp.com/www/index.php:128:    case $uri === '/admin/entries/delete':
+/var/vhosts/beopp.com/www/index.php:134:        require_once __DIR__ . '/../app/controllers/AdminController.php';
+/var/vhosts/beopp.com/www/index.php:136:        AdminController::deleteEntry();
+/var/vhosts/beopp.com/www/index.php:139:    case preg_match('#^/admin/contest/(\d+)/approve$#', $uri, $matches):
+/var/vhosts/beopp.com/www/index.php:140:        require_once __DIR__ . '/../app/controllers/AdminController.php';
+/var/vhosts/beopp.com/www/index.php:142:        AdminController::approveContest((int)$matches[1]);
+/var/vhosts/beopp.com/www/index.php:145:    case $uri === '/admin/entries' && $method === 'POST':
+/var/vhosts/beopp.com/www/index.php:150:    case preg_match('#^/admin/entry/(\d+)/approve$#', $uri, $matches):
+/var/vhosts/beopp.com/www/index.php:151:        require_once __DIR__ . '/../app/controllers/AdminController.php';
+/var/vhosts/beopp.com/www/index.php:153:        AdminController::approveEntry((int)$matches[1]);
+/var/vhosts/beopp.com/www/index.php:156:    case $uri === '/admin/contest/create':
+/var/vhosts/beopp.com/www/index.php:157:        require_once __DIR__ . '/../app/controllers/AdminController.php';
+/var/vhosts/beopp.com/www/index.php:159:        AdminController::createContest();
+/var/vhosts/beopp.com/www/index.php:162:    case $uri === '/admin/users':
+/var/vhosts/beopp.com/www/index.php:163:        require_once __DIR__ . '/../app/controllers/AdminController.php';
+/var/vhosts/beopp.com/www/index.php:165:        AdminController::users();
+/var/vhosts/beopp.com/www/index.php:168:    case $uri === '/admin/users/delete':
+/var/vhosts/beopp.com/www/index.php:170:            require_once __DIR__ . '/../app/controllers/AdminController.php';
+/var/vhosts/beopp.com/www/index.php:172:            AdminController::deleteUser();
+/var/vhosts/beopp.com/app/controllers/ContestController.php:91:        if (session_status() === PHP_SESSION_NONE) session_start();
+/var/vhosts/beopp.com/app/controllers/ContestController.php:96:        if (!empty($_SESSION['entry_message'])) {
+/var/vhosts/beopp.com/app/controllers/ContestController.php:98:                . htmlspecialchars($_SESSION['entry_message']) . "</p>";
+/var/vhosts/beopp.com/app/controllers/ContestController.php:99:            unset($_SESSION['entry_message']);
+/var/vhosts/beopp.com/app/controllers/ContestController.php:101:        if (!empty($_SESSION['vote_message'])) {
+/var/vhosts/beopp.com/app/controllers/ContestController.php:103:                . htmlspecialchars($_SESSION['vote_message']) . "</p>";
+/var/vhosts/beopp.com/app/controllers/ContestController.php:104:            unset($_SESSION['vote_message']);
+/var/vhosts/beopp.com/app/controllers/ContestController.php:161:        $userId = $_SESSION['user']['id'] ?? null;
+/var/vhosts/beopp.com/app/controllers/ContestController.php:175:        if (session_status() === PHP_SESSION_NONE) session_start();
+/var/vhosts/beopp.com/app/controllers/ContestController.php:180:        if (!empty($_SESSION['entry_message'])) {
+/var/vhosts/beopp.com/app/controllers/ContestController.php:182:                . htmlspecialchars($_SESSION['entry_message']) . "</p>";
+/var/vhosts/beopp.com/app/controllers/ContestController.php:183:            unset($_SESSION['entry_message']);
+/var/vhosts/beopp.com/app/controllers/ContestController.php:185:        if (!empty($_SESSION['vote_message'])) {
+/var/vhosts/beopp.com/app/controllers/ContestController.php:187:                . htmlspecialchars($_SESSION['vote_message']) . "</p>";
+/var/vhosts/beopp.com/app/controllers/ContestController.php:188:            unset($_SESSION['vote_message']);
+/var/vhosts/beopp.com/app/controllers/ContestController.php:245:        $userId = $_SESSION['user']['id'] ?? null;
+/var/vhosts/beopp.com/app/controllers/VoteController.php:6:        if (session_status() === PHP_SESSION_NONE) {
+/var/vhosts/beopp.com/app/controllers/VoteController.php:7:            session_start();
+/var/vhosts/beopp.com/app/controllers/VoteController.php:56:        // If user not logged in, send to Cognito with slug redirect
+/var/vhosts/beopp.com/app/controllers/VoteController.php:57:        if (empty($_SESSION['user'])) {
+/var/vhosts/beopp.com/app/controllers/VoteController.php:58:            $_SESSION['pending_vote'] = ['entry_id' => $entryId];
+/var/vhosts/beopp.com/app/controllers/VoteController.php:66:            $loginUrl = "https://us-west-1zqoknog9t.auth.us-west-1.amazoncognito.com/oauth2/authorize"
+/var/vhosts/beopp.com/app/controllers/VoteController.php:80:            $_SESSION['vote_message'] = "Voting hasn't started yet.";
+/var/vhosts/beopp.com/app/controllers/VoteController.php:85:            $_SESSION['vote_message'] = "Voting is closed.";
+/var/vhosts/beopp.com/app/controllers/VoteController.php:92:        $userId = $_SESSION['user']['id'] ?? null;
+/var/vhosts/beopp.com/app/controllers/VoteController.php:124:            $_SESSION['vote_message'] = "You already used your free vote for this contest. Come back in {$timeLeft}.";
+/var/vhosts/beopp.com/app/controllers/VoteController.php:140:        $_SESSION['vote_message'] = "Thanks for voting!";
+/var/vhosts/beopp.com/app/controllers/AuthController.php:7:        // Put your Cognito Hosted UI login URL in config['auth']['login_url']
+/var/vhosts/beopp.com/app/controllers/AuthController.php:9:        // https://<your-domain>.auth.<region>.amazoncognito.com/login
+/var/vhosts/beopp.com/app/controllers/AuthController.php:13:        //   &redirect_uri=https%3A%2F%2Fwww.beopp.com%2Fauth%2Fcognito%2Fcallback
+/var/vhosts/beopp.com/app/controllers/EntryController.php:183:            if (session_status() === PHP_SESSION_NONE) session_start();
+/var/vhosts/beopp.com/app/controllers/EntryController.php:184:            $_SESSION['entry_message'] = "Thank you! Your entry has been submitted.";
+/var/vhosts/beopp.com/app/controllers/EntryController.php:227:        // Hide unapproved unless owner/admin
+/var/vhosts/beopp.com/app/controllers/EntryController.php:229:            if (session_status() === PHP_SESSION_NONE) session_start();
+/var/vhosts/beopp.com/app/controllers/EntryController.php:230:            $isOwner = !empty($_SESSION['user']['id']) && ((int)$_SESSION['user']['id'] === (int)$entry['user_id']);
+/var/vhosts/beopp.com/app/controllers/EntryController.php:231:            $isAdmin = !empty($_SESSION['user']['is_admin']);
+/var/vhosts/beopp.com/app/controllers/EntryController.php:232:            if (!$isOwner && !$isAdmin) {
+/var/vhosts/beopp.com/app/controllers/EntryController.php:268:        if (session_status() === PHP_SESSION_NONE) session_start();
+/var/vhosts/beopp.com/app/controllers/EntryController.php:269:        $userId = $_SESSION['user']['id'] ?? null;
+/var/vhosts/beopp.com/app/controllers/UserController.php:7:        if (session_status() === PHP_SESSION_NONE) {
+/var/vhosts/beopp.com/app/controllers/UserController.php:8:            session_start();
+/var/vhosts/beopp.com/app/controllers/UserController.php:10:        if (empty($_SESSION['user']) || empty($_SESSION['user']['id'])) {
+/var/vhosts/beopp.com/app/controllers/UserController.php:15:        return $_SESSION['user'];
+/var/vhosts/beopp.com/app/controllers/AdminController.php:2:// app/controllers/AdminController.php
+/var/vhosts/beopp.com/app/controllers/AdminController.php:8:class AdminController {
+/var/vhosts/beopp.com/app/controllers/AdminController.php:20:        include __DIR__ . '/../views/admin/dashboard.php';
+/var/vhosts/beopp.com/app/controllers/AdminController.php:61:        include __DIR__ . '/../views/admin/contests.php';
+/var/vhosts/beopp.com/app/controllers/AdminController.php:89:        header('Location: /admin/contests?deleted=1');
+/var/vhosts/beopp.com/app/controllers/AdminController.php:147:    include __DIR__ . '/../views/admin/entries.php';
+/var/vhosts/beopp.com/app/controllers/AdminController.php:182:        include __DIR__ . '/../views/admin/contest_create.php';
+/var/vhosts/beopp.com/app/controllers/AdminController.php:228:        include __DIR__ . '/../views/admin/contest_create.php';
+/var/vhosts/beopp.com/app/controllers/AdminController.php:244:        header('Location: /admin/contests?created=1');
+/var/vhosts/beopp.com/app/controllers/AdminController.php:249:        include __DIR__ . '/../views/admin/contest_create.php';
+/var/vhosts/beopp.com/app/controllers/AdminController.php:289:    $redirect = $_POST['redirect'] ?? '/admin/entries?approved=1';
+/var/vhosts/beopp.com/app/controllers/AdminController.php:331:        $redirect = $_POST['redirect'] ?? '/admin/entries?deleted=1';
+/var/vhosts/beopp.com/app/views/contest/show.php:171:                            <?php if (empty($_SESSION['user'])): ?>
+/var/vhosts/beopp.com/app/views/contest/show.php:178:                                    $loginUrl = "https://us-west-1zqoknog9t.auth.us-west-1.amazoncognito.com/oauth2/authorize" .
+/var/vhosts/beopp.com/app/views/contest/show.php:200:                            <form method="POST" action="/create-checkout-session.php" class="buy-vote-form" style="margin-top: 8px;">
+/var/vhosts/beopp.com/app/views/contest/show.php:223:document.querySelectorAll('form[action="/create-checkout-session.php"]').forEach(function(form) {
+/var/vhosts/beopp.com/app/views/contest/show.php:240:                console.error("No session ID returned:", data);
+/var/vhosts/beopp.com/app/views/contest/show.php:241:                alert("No session ID returned. Payment cannot proceed.");
+/var/vhosts/beopp.com/app/views/contest/show.php:246:            return stripe.redirectToCheckout({ sessionId: data.id });
+/var/vhosts/beopp.com/app/views/entry/show.php:105:            <?php if (empty($_SESSION['user'])): ?>
+/var/vhosts/beopp.com/app/views/entry/show.php:113:                    $loginUrl = "https://us-west-1zqoknog9t.auth.us-west-1.amazoncognito.com/oauth2/authorize" .
+/var/vhosts/beopp.com/app/views/entry/show.php:135:            <form method="POST" action="/create-checkout-session.php" class="buy-vote-form" style="margin-top: 8px;">
+/var/vhosts/beopp.com/app/views/entry/show.php:182:document.querySelectorAll('form[action="/create-checkout-session.php"]').forEach(function(form) {
+/var/vhosts/beopp.com/app/views/entry/show.php:199:                console.error("No session ID returned:", data);
+/var/vhosts/beopp.com/app/views/entry/show.php:200:                alert("No session ID returned. Payment cannot proceed.");
+/var/vhosts/beopp.com/app/views/entry/show.php:204:            return stripe.redirectToCheckout({ sessionId: data.id });
+/var/vhosts/beopp.com/app/views/partials/header.php:2:if (session_status() === PHP_SESSION_NONE) {
+/var/vhosts/beopp.com/app/views/partials/header.php:3:    session_start();
+/var/vhosts/beopp.com/app/views/partials/header.php:8:    <?php if (!empty($_SESSION['user']['email'])): ?>
+/var/vhosts/beopp.com/app/views/partials/header.php:11:            <?php echo htmlspecialchars($_SESSION['user']['email']); ?>
+/var/vhosts/beopp.com/app/views/partials/header.php:14:        <?php if (!empty($_SESSION['user']['is_admin']) && $_SESSION['user']['is_admin']): ?>
+/var/vhosts/beopp.com/app/views/partials/header.php:15:            <a href="/admin">Admin</a> |
+/var/vhosts/beopp.com/app/views/partials/header.php:19:        <a href="https://us-west-1zqoknog9t.auth.us-west-1.amazoncognito.com/login?client_id=1jl0f5e01ujffgddl0jejco6d4&response_type=code&scope=email+openid&redirect_uri=https://www.beopp.com/auth/callback.php">
+/var/vhosts/beopp.com/app/views/admin/contests.php:2:// app/views/admin/contests.php
+/var/vhosts/beopp.com/app/views/admin/contests.php:10:<form method="get" action="/admin/contests" style="margin-bottom:12px">
+/var/vhosts/beopp.com/app/views/admin/contests.php:38:          <form method="post" action="/admin/contests/delete"
+/var/vhosts/beopp.com/app/views/admin/contests.php:44:          <a class="btn" href="/admin/entries?contest_id=<?= (int)$c['id'] ?>">View entries</a>
+/var/vhosts/beopp.com/app/views/admin/contest_moderation.php:13:                    <a href="/admin/contest/<?php echo $contest['id']; ?>/approve">Approve</a>
+/var/vhosts/beopp.com/app/views/admin/entries.php:2:// app/views/admin/entries.php
+/var/vhosts/beopp.com/app/views/admin/entries.php:11:<form method="get" action="/admin/entries" style="margin-bottom:12px">
+/var/vhosts/beopp.com/app/views/admin/entries.php:51:            <form method="post" action="/admin/entry/<?= (int)$e['id'] ?>/approve"
+/var/vhosts/beopp.com/app/views/admin/entries.php:60:          <form method="post" action="/admin/entries/delete"
+/var/vhosts/beopp.com/app/views/admin/_header.php:1:<?php // app/views/admin/_header.php ?>
+/var/vhosts/beopp.com/app/views/admin/_header.php:28:  <a href="/admin">Dashboard</a>
+/var/vhosts/beopp.com/app/views/admin/_header.php:29:  <a href="/admin/contests">Contests</a>
+/var/vhosts/beopp.com/app/views/admin/_header.php:30:  <a href="/admin/entries">Entries</a>
+/var/vhosts/beopp.com/app/views/admin/_header.php:31:  <a href="/admin/contest/create">Create Contest</a>
+/var/vhosts/beopp.com/app/views/admin/contest_create.php:2:// app/views/admin/contest_create.php
+/var/vhosts/beopp.com/app/views/admin/contest_create.php:20:<form method="post" action="/admin/contest/create" style="display:grid; gap:10px; max-width:720px">
+/var/vhosts/beopp.com/app/views/admin/contest_create.php:86:    <a class="btn" href="/admin/contests">Cancel</a>
+/var/vhosts/beopp.com/app/views/admin/entry_moderation.php:12:                    <a href="/admin/entry/<?php echo $entry['id']; ?>/approve">Approve</a>
+/var/vhosts/beopp.com/app/views/admin/admin_users.php:2:// app/views/admin/admin_users.php
+/var/vhosts/beopp.com/app/views/admin/admin_users.php:24:<?php if (!empty($_SESSION['flash'])): ?>
+/var/vhosts/beopp.com/app/views/admin/admin_users.php:25:  <div class="flash"><?= htmlspecialchars($_SESSION['flash']); unset($_SESSION['flash']); ?></div>
+/var/vhosts/beopp.com/app/views/admin/admin_users.php:28:<form class="searchbar" method="get" action="/admin/users">
+/var/vhosts/beopp.com/app/views/admin/admin_users.php:32:    <a class="btn" href="/admin/users">Clear</a>
+/var/vhosts/beopp.com/app/views/admin/admin_users.php:43:      <th style="width:90px;">Role</th>
+/var/vhosts/beopp.com/app/views/admin/admin_users.php:58:          <?php if (!empty($u['is_admin'])): ?>
+/var/vhosts/beopp.com/app/views/admin/admin_users.php:65:          <?php if (!empty($_SESSION['user']['id']) && (int)$_SESSION['user']['id'] === (int)$u['id']): ?>
+/var/vhosts/beopp.com/app/views/admin/admin_users.php:68:            <form method="post" action="/admin/users/delete"
+/var/vhosts/beopp.com/app/views/admin/admin_users.php:88:        <a href="/admin/users?<?= http_build_query(['page' => $p, 'q' => $q ?? '']) ?>"><?= $p ?></a>
+/var/vhosts/beopp.com/app/views/admin/delete_user.php:3:// POST-only; deletes a user from Cognito (and your local DB).
+/var/vhosts/beopp.com/app/views/admin/delete_user.php:5:session_start();
+/var/vhosts/beopp.com/app/views/admin/delete_user.php:11:if (empty($_SESSION['user']['is_admin'])) {
+/var/vhosts/beopp.com/app/views/admin/delete_user.php:15:if (empty($_POST['csrf']) || $_POST['csrf'] !== ($_SESSION['csrf'] ?? null)) {
+/var/vhosts/beopp.com/app/views/admin/delete_user.php:30:use Aws\CognitoIdentityProvider\CognitoIdentityProviderClient;
+/var/vhosts/beopp.com/app/views/admin/delete_user.php:37:$cognito = new CognitoIdentityProviderClient([
+/var/vhosts/beopp.com/app/views/admin/delete_user.php:42:// 1) Delete from Cognito
+/var/vhosts/beopp.com/app/views/admin/delete_user.php:44:    $cognito->adminDeleteUser([
+/var/vhosts/beopp.com/app/views/admin/delete_user.php:49:    // If Cognito user is already gone, you might still want to clean local DB.
+/var/vhosts/beopp.com/app/views/admin/delete_user.php:59:    // If you store Cognito 'sub' (preferred), you can map username === sub for federated users.
+/var/vhosts/beopp.com/app/views/admin/dashboard.php:1:<?php // app/views/admin/dashboard.php
+/var/vhosts/beopp.com/app/views/admin/_footer.php:1:<?php // app/views/admin/_footer.php ?>
