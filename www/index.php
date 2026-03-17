@@ -8,11 +8,11 @@ Local deployment test working
 
 // Enable full error reporting (disable in production)
 
-// Canonical host (choose ONE)
-$canonical = 'www.beopp.com';
-if (!empty($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST'] !== $canonical) {
+// Canonical host: redirect bare apex to www in production, but allow staging and local hosts.
+$host = $_SERVER['HTTP_HOST'] ?? '';
+if ($host === 'beopp.com') {
     $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
-    header('Location: ' . $scheme . '://' . $canonical . $_SERVER['REQUEST_URI'], true, 301);
+    header('Location: ' . $scheme . '://www.beopp.com' . $_SERVER['REQUEST_URI'], true, 301);
     exit;
 }
 
